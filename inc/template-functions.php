@@ -35,3 +35,16 @@ function gilape_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'gilape_pingback_header' );
+
+/**
+ * Pagination
+ * 
+ * @since 0.1
+ */
+function gilape_the_posts_pagination(){
+	the_posts_pagination( array(
+		'mid_size' => 2,
+		'prev_text' => __( 'Previous', 'gilape' ),
+		'next_text' => __( 'Next', 'gilape' ),
+	) );
+}
