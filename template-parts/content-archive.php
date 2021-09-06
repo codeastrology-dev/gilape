@@ -23,7 +23,7 @@
             gilape_posted_on();
         ?>
     </header><!-- .entry-header -->
-	<div class="entry-content">
+	<div class="entry-content-wrapper">
 		
 		<?php
 		
@@ -44,6 +44,7 @@
 		</h2>
 		<?php 
 		endif;?>
+		
 		<div class="blog_post_meta mb-2 mt-2">
 			<?php
                 gilape_posted_by();
@@ -51,10 +52,12 @@
                 gilape_get_category();
 			?>
 		</div>
+
 		<div class="entry-content">
 			<?php echo gilape_get_excerpt(50);?>
 		</div><!-- .entry-content -->
-	</div>
+
+	</div><!-- .entry-content-wrapper -->
 </article>
 
 
