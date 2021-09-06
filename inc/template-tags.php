@@ -52,6 +52,20 @@ if ( ! function_exists( 'gilape_posted_by' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'gilape_get_category' ) ) :
+	/**
+	 * Prints HTML with meta information for the current author.
+	 */
+	function gilape_get_category() {
+		$category = get_the_category();
+		if ( !empty($category) && $category[0] ){
+			?>
+			<span><i class="fa fa-bookmark-o"></i><a  class="gilape-cat" href="<?php echo esc_url( get_category_link( $category[0]->term_id ) ); ?>"><?php echo esc_html( $category[0]->cat_name );?></a></span>
+			<?php
+		}
+	}
+endif;
+
 if ( ! function_exists( 'gilape_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
