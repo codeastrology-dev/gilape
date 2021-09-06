@@ -9,25 +9,13 @@
  * @package Gilape
  */
 
+/**
+ * Hook - gilape_footer
+ * @hooked gilape_footer - 10
+ */
+do_action( 'gilape_footer' );
 ?>
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'gilape' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'gilape' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'gilape' ), 'gilape', '<a href="http://underscores.me/">autocircle</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
-
+<div id="scroll_to_top" class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
 <?php wp_footer(); ?>
 
 </body>
