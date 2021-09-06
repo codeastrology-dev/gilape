@@ -37,6 +37,40 @@ function gilape_pingback_header() {
 add_action( 'wp_head', 'gilape_pingback_header' );
 
 /**
+ * Add Image Size
+ * 
+ * @since 0.1
+ */
+function gilape_thumbsize() {
+	add_image_size( 'gilape-sidebar-thumbnail', 100, 100, true );
+	add_image_size( 'gilape-home-thumbnail', 370, 320, true );
+	add_image_size( 'gilape-blog-thumbnail', 1200, 628, true );
+}
+add_action( 'after_setup_theme', 'gilape_thumbsize' );
+
+/**
+ * Custom Excerpt
+ * 
+ * @since 0.1
+ */
+add_filter( 'excerpt_length', 'gilape_get_excerpt' );
+
+function gilape_get_excerpt( $count ) {
+	global $post;
+	$permalink = esc_url( get_permalink( $post->ID ) );
+	$excerpt = get_the_content();
+	$excerpt = strip_tags( $excerpt );
+	$excerpt = substr( $excerpt, 0, $count );
+	$excerpt = wp_kses_post( substr( $excerpt, 0, strripos( $excerpt, " " ) ) );
+	$read_more_btn = sprintf( '%1$s <p class="read-more-button-container"><a class="read_more_btn" href="%2$s">%3$s</a></p>',
+			$excerpt,
+			get_permalink(),
+			__( 'Continue reading', 'gilape' )
+		);
+		$excerpt = '<p>'.$excerpt.'... '.$read_more_btn.'</p>';
+		return $excerpt;
+}
+/**
  * Pagination
  * 
  * @since 0.1

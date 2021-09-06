@@ -10,8 +10,14 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'gilape' ); ?></h1>
+	<header class="container-fluid breadcumbs page-header">
+		<div class="container mb-5">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'gilape' ); ?></h1>
+				</div>
+			</div>
+		</div>
 	</header><!-- .page-header -->
 
 	<div class="page-content">

@@ -128,7 +128,7 @@ if ( ! function_exists( 'gilape_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail('gilape-blog-thumbnail'); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
