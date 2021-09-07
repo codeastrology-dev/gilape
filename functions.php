@@ -7,9 +7,9 @@
  * @package Gilape
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if ( ! defined( '_GILAPE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_GILAPE_VERSION', '0.1' );
 }
 
 if ( ! function_exists( 'gilape_setup' ) ) :
@@ -117,6 +117,44 @@ function gilape_content_width() {
 add_action( 'after_setup_theme', 'gilape_content_width', 0 );
 
 /**
+ * Enqueue scripts and styles.
+ * 
+ * @since 0.6
+ */
+function gilape_scripts() {
+	wp_enqueue_style( 'gilape-style', get_stylesheet_uri(), array(), _GILAPE_VERSION );
+	wp_style_add_data( 'gilape-style', 'rtl', 'replace' );
+
+	
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
+	
+	wp_enqueue_style( 'navbar', get_template_directory_uri() . '/assets/css/navbar.min.css');
+	
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css');
+	
+	wp_enqueue_style( 'gilape-main-style', get_template_directory_uri() . '/assets/css/gilape-style.css');
+	
+	wp_enqueue_script('jquery');
+
+	wp_enqueue_script( 'gilape-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _GILAPE_VERSION, true );
+	
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), '20210901', true );
+	/**
+	 * enqueu js.
+	 */
+	wp_enqueue_script( 'navbar-js', get_template_directory_uri() . '/assets/js/navbar.min.js', array(), '20210901', true );
+	
+	wp_enqueue_script( 'lazyload', get_template_directory_uri() . '/assets/js/lazy-load-images.min.js', array(), '20210901', true );
+			
+	wp_enqueue_script( 'gilape-custom', get_template_directory_uri() . '/assets/js/custom.js', array(), '20210901', true );
+	
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'gilape_scripts' );
+
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -135,21 +173,6 @@ function gilape_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'gilape_widgets_init' );
-
-/**
- * Enqueue scripts and styles.
- */
-function gilape_scripts() {
-	wp_enqueue_style( 'gilape-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'gilape-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'gilape-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'gilape_scripts' );
 
 /**
  * Implement the Custom Header feature.
