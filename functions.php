@@ -190,6 +190,11 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
+ * Function which enhance the theme by hooking into the theme.
+ */
+require get_template_directory() . '/inc/hooked-functions.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';

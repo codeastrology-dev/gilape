@@ -795,7 +795,7 @@ span.next-post {
 	color: #0a1823;
 }
 /* Scroll up */
-#scroll_top {
+#scroll_to_top {
     position: fixed;
     right: 40px;
     bottom: 40px;
@@ -815,7 +815,7 @@ span.next-post {
     -webkit-transition: 0.3;
     z-index: 100;
 }
-#scroll_top:hover {
+#scroll_to_top:hover {
     background: #0fc392;
     box-shadow: 0 0 16px #0000001f;
     color: white;
