@@ -56,7 +56,7 @@
 
 		<div class="entry-content">
 			<?php
-			echo gilape_get_excerpt(50);
+			echo gilape_get_excerpt(100);
 
 			wp_link_pages(
 				array(
