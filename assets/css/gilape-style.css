@@ -202,7 +202,7 @@ a:visited {
 }
 .sub-menu .menu-item-has-children > a:after {
   font-family: fontello;
-  display: inline-block;
+  display: block;
   margin-left: 0.255em;
   content: "\0801";
   float: right;
@@ -523,7 +523,7 @@ ul#recentcomments a,
 .widget_recent_entries .media-left,
 .footer .media .media-left {
 	max-width: 100%;
-	display: inline-block;
+	display: block;
 	float: left;
 }
 
@@ -535,7 +535,7 @@ ul#recentcomments a,
 .widget_recent_entries .media-left,
 .footer .media .media-left {
 	max-width: 100%;
-	display: inline-block;
+	display: block;
 	float: left;
 }
 
@@ -724,7 +724,7 @@ ol.comment-list li:last-child {
 
 .single-post .pagination a {
 	color: #555555;
-	display: inline-block;
+	display: block;
 	float: left;
 }
 
