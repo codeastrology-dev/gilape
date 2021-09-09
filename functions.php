@@ -195,9 +195,15 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/hooked-functions.php';
 
 /**
+ * Kirki Customizer.
+ */
+require get_template_directory() . '/inc/kirki/kirki.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer-social.php';
 
 /**
  * Load Jetpack compatibility file.
