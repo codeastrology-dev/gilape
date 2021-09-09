@@ -56,6 +56,6 @@ function gilape_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function gilape_customize_preview_js() {
-	wp_enqueue_script( 'gilape-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _GILAPE_VERSION, true );
+	wp_enqueue_script( 'gilape-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), _GILAPE_VERSION, true );
 }
 add_action( 'customize_preview_init', 'gilape_customize_preview_js' );
