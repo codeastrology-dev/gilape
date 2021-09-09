@@ -18,7 +18,7 @@ function gilape_body_classes( $classes ) {
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	if ( ! is_active_sidebar( 'sidebar' ) ) {
 		$classes[] = 'no-sidebar';
 	}
 
@@ -315,4 +315,81 @@ if( ! function_exists( 'gilape_social' ) ) {
 		endif;
 	}
 }
-add_action( 'gilape_social', 'gilape_social', 10 );
+// add_action( 'gilape_social', 'gilape_social', 10 );
+
+if( ! function_exists( 'gilape_widgets_init' ) ) {
+
+	/**
+	 * Register widget area.
+	 *
+	 * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+	 */
+	function gilape_widgets_init() {
+		register_sidebar( 
+			array(
+				'name'          => esc_html__( 'Sidebar', 'gilape' ),
+				'id'            => 'sidebar',
+				'description'   => esc_html__( 'Add widgets here.', 'gilape' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			) );
+		register_sidebar(
+			array(
+				'name' 			=> esc_html__('Footer Menu Widget Area','gilape'),
+				'id'        	=> 'footer_menu',
+				'description' 	=> esc_html__('Footer Menu Area','gilape'),
+				'before_widget' => '<div class="col-md-4">',
+				'after_widget' 	=> '</div>',
+				'before_title' 	=> '<h4>',
+				'after_title' 	=> '</h4>',
+			));
+			register_sidebar( 
+			array(
+				'name' 			=> esc_html__('&copy; Copyright Widget Area','gilape'),
+				'id' 			=> 'copyright',
+				'description' 	=> esc_html__('Add Copyright Text','gilape'),
+				'before_widget' => '',
+				'after_widget' 	=> '',
+				'before_title' 	=> '',
+				'after_title' 	=> '',
+			));
+	}
+}
+add_action( 'widgets_init', 'gilape_widgets_init' );
+
+if( ! function_exists( 'gilape_skip_link_focus_fix' ) ) {
+	/**
+	 * Fix skip link focus in IE11.
+	 *
+	 * This does not enqueue the script because it is tiny and because it is only for IE11,
+	 * thus it does not warrant having an entire dedicated blocking script being loaded.
+	 *
+	 * @link https://git.io/vWdr2
+	 */
+	function gilape_skip_link_focus_fix() {
+		// The following is minified via `terser --compress --mangle -- assets/js/skip-link-focus-fix.js`.
+		?>
+		<script>
+		/(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window
+			.addEventListener("hashchange", function() {
+				var t, e = location.hash.substring(1);
+				/^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i
+					.test(t.tagName) || (t.tabIndex = -1), t.focus())
+			}, !1);
+		</script>
+		<?php
+	}
+}
+add_action( 'wp_print_footer_scripts', 'gilape_skip_link_focus_fix' );
+
+/**
+ * Incluede skip link to top of the body
+ */
+function gilape_skip_link() {
+	echo '<a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'gilape' ) . '</a>';
+}
+
+add_action( 'wp_body_open', 'gilape_skip_link', 5 );
+

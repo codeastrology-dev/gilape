@@ -27,8 +27,11 @@
 	<div class="entry-content-wrapper">
 		
 		<?php
+		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title mb-3 mt-4">', '</h1>' );
-		?>
+		else :
+			the_title( '<h1 class="entry-title mb-3 mt-4"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
+		endif;?>
 		
 		<div class="blog_post_meta mb-2 mt-2">
 			<?php
