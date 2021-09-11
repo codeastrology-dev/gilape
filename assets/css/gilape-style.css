@@ -22,6 +22,11 @@
   }
 }
 */
+
+:root {
+	--body-text-color: #000;
+	--info-dark: #128496;
+}
  
  [class^="at-icon-"]:before, [class*=" at-icon-"]:before {
   font-family: "fontello";
@@ -62,7 +67,7 @@
 .at-icon-right-open-big:before { content: '\0801'; }
 body {
 	line-height: 28px;
-    color:#5a5a5a
+    color: var(--body-text-color);
 }
 h1.entry-title {
     color: #111;
@@ -72,14 +77,16 @@ h2 {
 	text-transform: none;
 }
 a {
-    color: #0fc392;
+    color: #17a2b8;
+	color: var(--info);
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
 }
 a:hover,
 a:visited {
-	color: #333
+	color: #128496;
+	color: var(--info-dark);
 }
 /**NAVBAR**/
 .navar{
@@ -255,34 +262,39 @@ a:visited {
 /**End NAVBAR**/
 .entry-title a {
 	font-size: 36px;
-	color: #021429;
-	color: #333;
+	color: #343a40;
+	color: var(--dark);
 	line-height: 1.333;
 }
+.taxonomy-meta,
+.blog_post_meta {
+	color: #343a40;
+	color: var(--dark);
+}
+.blog_post_meta a,
+.taxonomy-meta a {
+	color: #17a2b8;
+	color: var(--info);
+}
 blockquote {
-    border-left: 5px solid #0fc392;
+    border-left: 5px solid #128496;
     padding-left: 20px;
     margin: 30px 0;
     font-size: 16px;
     font-weight: 500;
     color: #111;
 }
-.blog_post_meta span {
-	margin-right: 10px
-}
-
-.blog_post_meta a {
-	color: #021429
-}
 
 .blog_post_meta i {
 	margin-right: 5px;
-	color: #0fc392;
+	color: #128496;
+	color: var(--info-dark);
 }
 
 a:hover,
 .sidebar section.widget ul li a:hover {
-	color: #0fc392;
+	color: #128496;
+	color: var(--info-dark);
 	text-decoration: none;
 }
 
@@ -293,14 +305,12 @@ article.post {
 	margin: 0 0 55px 0;
 }
 
-.content-wrap {
+.content-wrapper {
 	padding: 0 30px 30px 30px;
 }
 
 .read-more-button-container .read_more_btn {
-	font-size: 18px;
 	font-weight: 500;
-	color: #0fc392;
 	position: relative;
 }
 
@@ -309,11 +319,6 @@ article.post {
 	content: "\f178";
 	margin-left: 10px;
 }
-
-.read-more-button-container .read_more_btn:hover {
-	color: #333
-}
-
 
 /*
  * Sidebar
@@ -346,7 +351,7 @@ aside .widget.widget_archive li a:before,
 	left: -10px;
 	content: "\f101";
 	font-family: "FontAwesome";
-	color: #0fc392;
+	color: #128496;
 }
 
 aside.sidebar .widget_categories ul,
@@ -376,7 +381,7 @@ aside.sidebar .widget-title::after,
 	bottom: -3px;
 	left: 0;
 	content: "";
-	background: #0fc392;
+	background: #128496;
 	width: 75px;
 	height: 4px;
 }
@@ -387,7 +392,7 @@ Single page form
 */
 
 form.comment-form .form-submit input.submit {
-	background-color: #0fc392;
+	background-color: #128496;
 	color: #fff;
 	text-align: center;
 	font-size: 16px;
@@ -396,7 +401,7 @@ form.comment-form .form-submit input.submit {
 	line-height: 1.1;
 	padding: 17px 30px;
 	font-weight: 500;
-	border: 2px solid #0fc392;
+	border: 2px solid #128496;
 	border-radius: 0;
 	cursor: pointer;
 	transition: 0.3s;
@@ -406,8 +411,8 @@ form.comment-form .form-submit input.submit {
 form.comment-form .form-submit input.submit:focus,
 form.comment-form .form-submit input.submit:active,
 form.comment-form .form-submit input.submit:hover {
-	color: #0fc392;
-	border-color: #0fc392;
+	color: #128496;
+	border-color: #128496;
 	background: transparent;
 	outline: none;
 }
@@ -491,7 +496,7 @@ Latest post widget
 ul#recentcomments a,
 .archive-list a,
 .widget-meta a {
-	color: #0fc392;
+	color: #128496;
 	font-size: 14px;
 	padding: 0;
 	letter-spacing: 1.3px;
@@ -556,21 +561,21 @@ form.search-form input#search {
 
 form.search-form button {
 	height: 55px;
-	background-color: #0fc392;
+	background-color: #128496;
 	cursor: pointer;
 	color: #fff;
 	border: none;
 }
 
 .error-404 a.btn {
-	background: #0fc392;
+	background: #128496;
 	color: #fff;
 	padding: 10px 30px;
 	border-radius: 0;
 }
 
 .error-404 .error-msg {
-	color: #0fc392;
+	color: #128496;
 	font-size: 210px;
 	font-weight: 900;
 	line-height: 1;
@@ -615,7 +620,7 @@ main#primary {
 	position: absolute;
 	bottom: -18px;
 	left: 30px;
-	background: #0FC392;
+	background: #128496;
 	padding: 5px 20px;
 	color: #fff;
 	font-size: 14px;
@@ -631,7 +636,7 @@ main#primary {
 }
 
 .tagcloud a {
-	color: #0fc392;
+	color: #128496;
 }
 
 
@@ -685,7 +690,7 @@ li.comment {
 .comment-reply-link,
 .fn a,
 #cancel-comment-reply-link {
-	color: #0fc392;
+	color: #128496;
 	letter-spacing: 1.2px;
 	text-transform: uppercase;
 	font-size: 14px;
@@ -743,7 +748,7 @@ ol.comment-list li:last-child {
 }
 
 .single-post .pagination a:hover {
-	color: #0fc392;
+	color: #128496;
 }
 
 nav.navigation.post-navigation a {
@@ -755,7 +760,7 @@ nav.navigation.post-navigation a {
 	display: inline-block;
 	padding: 15px;
 	margin: 0 2px 0 0;
-	border: 1px solid #0fc392;
+	border: 1px solid #128496;
 	line-height: 1;
 	text-decoration: none;
 	border-radius: 2px;
@@ -764,7 +769,7 @@ nav.navigation.post-navigation a {
 }
 
 span.page-numbers.current {
-    background: #0fc392;
+    background: #128496;
     color: #fff;
 }
 
@@ -773,20 +778,20 @@ a.page-numbers:visited {
 }
 
 a.page-numbers:hover {
-	background: #0fc392;
+	background: #128496;
 	color: #fff
 }
 
 span.previous-post,
 span.next-post {
 	display: block;
-	color: #0fc392
+	color: #128496
 }
 
 span.previous-post,
 span.next-post {
 	display: block;
-	color: #0fc392;
+	color: #128496;
 	font-size: 16px;
 	font-weight: 400;
 	letter-spacing: 1.5px;
@@ -800,7 +805,7 @@ span.next-post {
     right: 40px;
     bottom: 40px;
     background: white;
-    color: #0fc392;
+    color: #128496;
     cursor: pointer;
     display: none;
     font-size: 30px;
@@ -816,7 +821,7 @@ span.next-post {
     z-index: 100;
 }
 #scroll_to_top:hover {
-    background: #0fc392;
+    background: #128496;
     box-shadow: 0 0 16px #0000001f;
     color: white;
 }

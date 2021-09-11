@@ -62,7 +62,7 @@ function gilape_get_excerpt( $count ) {
 	$excerpt = strip_tags( $excerpt );
 	$excerpt = substr( $excerpt, 0, $count );
 	$excerpt = wp_kses_post( substr( $excerpt, 0, strripos( $excerpt, " " ) ) );
-	$read_more_btn = sprintf( '<p class="read-more-button-container"><a class="read_more_btn" href="%1$s">%2$s</a></p>',
+	$read_more_btn = sprintf( '<p class="read-more-button-container mb-0"><a class="read_more_btn" href="%1$s">%2$s</a></p>',
 			$permalink,
 			__( 'Continue reading', 'gilape' )
 		);
