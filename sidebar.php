@@ -12,7 +12,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 }
 ?>
 
-<aside class="sidebar col-md-4 text-left bp-order-2">
+<aside id="secondary" class="sidebar col-md-4 text-left bp-order-2">
 	<div class="blog-sidebar">
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</div>

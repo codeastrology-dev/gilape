@@ -298,11 +298,13 @@ a:hover,
 	text-decoration: none;
 }
 
-.search article,
 .search article.page,
 article.post {
 	border: 1px solid #e2ebf1;
 	margin: 0 0 55px 0;
+}
+.search article.page {
+    padding-top: 30px;
 }
 
 .content-wrapper {
