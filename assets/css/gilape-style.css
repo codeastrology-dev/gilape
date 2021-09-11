@@ -615,20 +615,7 @@ main#primary {
 	position: relative
 }
 
-.archive span.posted-on a {
-	color: #fff
-}
 
-.archive span.posted-on {
-	position: absolute;
-	bottom: -18px;
-	left: 30px;
-	background: #128496;
-	padding: 5px 20px;
-	color: #fff;
-	font-size: 14px;
-	letter-spacing: 1.2px;
-}
 
 .archive span.posted-on i {
 	margin-right: 5px
