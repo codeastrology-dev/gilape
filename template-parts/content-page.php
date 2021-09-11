@@ -10,13 +10,19 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php 
+	if( has_post_thumbnail() ): ?>
+		<div class="caption">
+			<?php gilape_post_thumbnail(); ?>
+		</div>
+		<?php
+	endif; ?>
+
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php gilape_post_thumbnail(); ?>
-
-	<div class="entry-content">
+	<div class="entry-content clearfix">
 		<?php
 		the_content();
 
@@ -27,14 +33,11 @@
 			)
 		);
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif;
 		?>
 	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
+	
+	<?php 
+	if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
 			edit_post_link(
@@ -55,5 +58,11 @@
 			);
 			?>
 		</footer><!-- .entry-footer -->
-	<?php endif; ?>
+	<?php endif; 
+	
+	// If comments are open or we have at least one comment, load up the comment template.
+	if ( comments_open() || get_comments_number() ) :
+		comments_template();
+	endif;
+	?>
 </article><!-- #post-<?php the_ID(); ?> -->

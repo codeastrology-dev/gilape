@@ -11,9 +11,9 @@ get_header();
 ?>
 
 	<main id="site-content" class="site-main container mt-5">
-		<div id="primary" class="content-area">
-			<div class="row">
-				<div class="col-md-8 pr-3 pl-3">
+		<div class="row">
+			<div class="col-md-8 pr-3 pl-3">
+				<div id="primary" class="content-area">
 					<?php
 					while ( have_posts() ) :
 						the_post();
@@ -37,12 +37,13 @@ get_header();
 
 					endwhile; // End of the loop.
 					?>
-				</div>
+				</div><!-- #primary -->
 
-				<?php get_sidebar(); ?>
+			</div><!-- .col-md-8 -->
 
-			</div><!-- .row -->
-		</div><!-- #primary -->
+			<?php get_sidebar(); ?>
+
+		</div><!-- .row -->
 	</main><!-- #main -->
 
 <?php

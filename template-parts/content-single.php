@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'mb-5 home-blog' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'mb-3 home-blog' ); ?>>
 	<header class="entry-header mb-4">
 		<?php 
 		if ( 'post' === get_post_type() ) :
@@ -44,7 +44,7 @@
 		
 		
 
-		<div class="entry-content">
+		<div class="entry-content clearfix">
 			<?php
             the_content();
 
@@ -58,7 +58,7 @@
 			?>
 		</div><!-- .entry-content -->
 		
-		<div class="taxonomy-meta">
+		<div class="taxonomy-meta mt-3">
 			<?php gilape_entry_footer(); ?>
 		</div>
 	</div><!-- .entry-content-wrapper -->

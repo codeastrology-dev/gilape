@@ -20,7 +20,7 @@
 		</div>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div class="page-content clearfix">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 

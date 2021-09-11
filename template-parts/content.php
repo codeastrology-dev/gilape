@@ -60,7 +60,7 @@
 			<?php 
 		endif;?>
 
-		<div class="entry-content">
+		<div class="entry-content clearfix">
 		<?php
 		echo gilape_get_excerpt(100);
 
