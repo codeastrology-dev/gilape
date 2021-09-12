@@ -36,6 +36,10 @@ get_header();
 							get_template_part( 'template-parts/content', 'search' );
 
 						endwhile;
+						
+						if( function_exists( 'gilape_the_posts_pagination' ) ) :
+							gilape_the_posts_pagination();
+						endif;
 						?>
 					</section>
 				</div><!-- #primary -->

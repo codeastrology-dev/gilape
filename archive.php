@@ -41,7 +41,9 @@ get_header();
 
 				endwhile;
 
-				the_posts_navigation();
+				if( function_exists( 'gilape_the_posts_pagination' ) ) :
+					gilape_the_posts_pagination();
+				endif;
 
 			else :
 
