@@ -748,8 +748,8 @@ textarea {
 	display: block;
 }
 
-.post,
-.page {
+article.post,
+article.page {
 	margin: 0 0 1.5em;
 }
 

@@ -315,7 +315,7 @@ if( ! function_exists( 'gilape_social' ) ) {
 		endif;
 	}
 }
-// add_action( 'gilape_social', 'gilape_social', 10 );
+add_action( 'gilape_social', 'gilape_social', 10 );
 
 if( ! function_exists( 'gilape_widgets_init' ) ) {
 
