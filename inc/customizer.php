@@ -59,3 +59,18 @@ function gilape_customize_preview_js() {
 	wp_enqueue_script( 'gilape-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), _GILAPE_VERSION, true );
 }
 add_action( 'customize_preview_init', 'gilape_customize_preview_js' );
+
+/**
+ * Replacing loading logo
+ */
+function gilape_customizer_loading_logo() {
+	?>
+    <style>
+        .kirki-customizer-loading-wrapper {
+            background-image: url(<?php echo esc_url( get_template_directory_uri() . '/assets/images/loader.png' ); ?>);
+        }
+    </style>
+	<?php
+
+}
+add_action( 'wp_head', 'gilape_customizer_loading_logo', 100 );
