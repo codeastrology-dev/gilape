@@ -15,32 +15,64 @@ if ( ! function_exists( 'gilape_header' ) ) :
 						aria-label="<?php esc_attr_e( 'Toggle navigation', 'gilape' ); ?>">
 						<span class="toggle-menu fa fa-bars"></span>
 					</button>
-					<?php
-					if ( has_nav_menu( 'primary' ) ) :
-						wp_nav_menu( array(
-							'theme_location'    => 'primary',
-							'depth'             => 3,
-							'container'         => 'div',
-							'container_class'   => 'collapse navbar-collapse justify-content-center',
-							'container_id'      => 'navbar-collapse',
-							'menu_class'        => 'nav navbar-nav',
-							'items_wrap'		=> '<ul class="nav navbar-nav" data-function="navbar">%3$s</ul>',
-						) );
-					else:
-					wp_page_menu(
-						array(
-							'container'  => 'div',
-							'menu_id'    => 'navbar-collapse',
-							'menu_class' => 'nav navbar-nav',
-							'menu_class' => 'collapse navbar-collapse justify-content-center',
-							'before'     => '<ul class="nav navbar-nav" data-function="navbar">',
-							'after'      => '</ul>',
-						)
-					); 
-				endif; 
-				?>
+					<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
+						<span class="toggle-inner">
+							<span class="toggle-menu fa fa-bars"></span>
+							<!-- <span class="toggle-icon">
+								<?php //twentytwenty_the_theme_svg( 'ellipsis' ); ?>
+							</span> -->
+							<span class="toggle-text"><?php _e( 'Menu', 'twentytwenty' ); ?></span>
+						</span>
+					</button><!-- .nav-toggle -->
+					
 				</div>
 			</nav>
+
+			<div class="header-navigation-wrapper">
+
+				<?php
+				if ( has_nav_menu( 'primary' ) || ! has_nav_menu( 'expanded' ) ) {
+					?>
+
+						<nav class="primary-menu-wrapper" aria-label="<?php echo esc_attr_x( 'Horizontal', 'menu', 'twentytwenty' ); ?>" role="navigation">
+
+							<ul class="primary-menu reset-list-style">
+
+							<?php
+							if ( has_nav_menu( 'primary' ) ) {
+
+								wp_nav_menu(
+									array(
+										'container'  => '',
+										'items_wrap' => '%3$s',
+										'theme_location' => 'primary',
+									)
+								);
+
+							} elseif ( ! has_nav_menu( 'expanded' ) ) {
+
+								wp_list_pages(
+									array(
+										'match_menu_classes' => true,
+										'show_sub_menu_icons' => true,
+										'title_li' => false,
+										'walker'   => new TwentyTwenty_Walker_Page(),
+									)
+								);
+
+							}
+							?>
+
+							</ul>
+
+						</nav><!-- .primary-menu-wrapper -->
+
+					<?php
+				}
+
+				?>
+
+			</div><!-- .header-navigation-wrapper -->
 		</header>
 <?php
 }

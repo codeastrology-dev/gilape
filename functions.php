@@ -50,7 +50,11 @@ if ( ! function_exists( 'gilape_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'primary' => esc_html__( 'Primary', 'gilape' ),
+				'primary'  => __( 'Desktop Horizontal Menu', 'gilape' ),
+				'expanded' => __( 'Desktop Expanded Menu', 'gilape' ),
+				'mobile'   => __( 'Mobile Menu', 'gilape' ),
+				'footer'   => __( 'Footer Menu', 'gilape' ),
+				'social'   => __( 'Social Menu', 'gilape' ),
 			)
 		);
 
@@ -173,6 +177,11 @@ function gilape_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'gilape_widgets_init' );
+
+/**
+ * Custom comment walker.
+ */
+require get_template_directory() . '/inc/classes/class-twentytwenty-walker-page.php';
 
 /**
  * Implement the Custom Header feature.
