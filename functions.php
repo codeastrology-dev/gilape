@@ -126,11 +126,11 @@ add_action( 'after_setup_theme', 'gilape_content_width', 0 );
  * @since 0.6
  */
 function gilape_scripts() {
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
+	
 	wp_enqueue_style( 'gilape-style', get_stylesheet_uri(), array(), _GILAPE_VERSION );
 	wp_style_add_data( 'gilape-style', 'rtl', 'replace' );
-
 	
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
 	
 	wp_enqueue_style( 'navbar', get_template_directory_uri() . '/assets/css/navbar.min.css');
 	
