@@ -146,7 +146,7 @@ function gilape_scripts() {
 	/**
 	 * enqueu js.
 	 */
-	wp_enqueue_script( 'navbar-js', get_template_directory_uri() . '/assets/js/navbar.min.js', array(), '20210901', true );
+	// wp_enqueue_script( 'navbar-js', get_template_directory_uri() . '/assets/js/navbar.min.js', array(), '20210901', true );
 	
 	wp_enqueue_script( 'lazyload', get_template_directory_uri() . '/assets/js/lazy-load-images.min.js', array(), '20210901', true );
 			
