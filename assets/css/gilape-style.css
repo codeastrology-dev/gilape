@@ -142,12 +142,6 @@ button.toggle {
     overflow: visible;
     padding: 0 2rem;
 }
-.header-navigation-wrapper {
-    display: none;
-}
-.primary-menu-wrapper {
-    display: none;
-}
 .reset-list-style,
 .reset-list-style ul,
 .reset-list-style ol {
