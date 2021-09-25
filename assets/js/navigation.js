@@ -6,7 +6,7 @@
  */
 ( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
-
+	console.log(siteNavigation);
 	// Return early if the navigation don't exist.
 	if ( ! siteNavigation ) {
 		return;
@@ -60,6 +60,7 @@
 
 	// Toggle focus each time a menu link is focused or blurred.
 	for ( const link of links ) {
+		console.log(links);
 		link.addEventListener( 'focus', toggleFocus, true );
 		link.addEventListener( 'blur', toggleFocus, true );
 	}
@@ -72,7 +73,8 @@
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
-	function toggleFocus() {
+	function toggleFocus(event) {
+		console.log(event.type);
 		if ( event.type === 'focus' || event.type === 'blur' ) {
 			let self = this;
 			// Move up through the ancestors of the current link until we hit .nav-menu.

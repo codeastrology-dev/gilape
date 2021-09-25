@@ -4,7 +4,7 @@ if ( ! function_exists( 'gilape_header' ) ) :
 
 		<header class="nav-header">
 			<!--Navbar -->
-			<nav class="navbar navbar-expand-lg">
+			<nav id="site-navigation" class="navbar navbar-expand-lg">
 				<div class="container">
 					<div class="site-info">
 						<?php gilape_site_logo();?>
